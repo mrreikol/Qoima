@@ -1,5 +1,3 @@
-<img src="public/favicon.svg" alt="Qoima logo" width="56" height="56">
-
 # Qoima — Digital Warehouse
 
 **Inventory management for small businesses.** Organize products, receive and remove stock, reconcile counted quantities, and keep a clear movement history.

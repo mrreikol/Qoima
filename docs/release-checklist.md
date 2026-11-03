@@ -1,6 +1,6 @@
 # Release checklist
 
-This checklist separates local execution from the project owner's real Supabase verification. Real-project checks below are **user-reported**, not re-executed during publication preparation. There is no published repository URL, live deployment or hosted verification claim.
+This checklist separates local execution from the project owner's real Supabase verification. Real-project checks below are **user-reported**, not re-executed during publication preparation. The owner has since supplied the [public repository](https://github.com/mrreikol/Qoima) and [live demo](https://qoima-nine.vercel.app). Their availability does not mark the hosted verification items complete.
 
 ## Completed automated checks
 
@@ -31,6 +31,14 @@ PGlite has one database connection here. None of these tests proves independent-
 - [x] Actual production writer generates/downloads a fictional XLSX, independently read back for string SKU/Unicode/formula-like text and numeric quantities/prices.
 
 These checks used local preview/static fixtures, not a deployed site. No new browser pass or real Supabase mutation is claimed for publication preparation. Historical local captures are deliberately excluded from the public repository.
+
+## Public README screenshots
+
+- [x] Captured current Dashboard, Products, product details and 390 px mobile Products using the isolated read-only visual fixture, with realistic fictional inventory and an example email. The actual page components/styles were used without application changes.
+- [x] Public captures exclude browser chrome, review banners, personal account data and AUTHZ/STK verification fixtures. They are explicitly labeled as illustrative sample data; see [screenshots/README.md](screenshots/README.md).
+- [x] November 4, 2026 resumed review: existing images retained unchanged, local image/file links and documentation anchors checked, and `npm test`, `npm run lint` and `npm run build` run directly without output redirection. All 87 tests passed; lint/build passed. The optional XLSX size warning remains visible.
+
+This visual capture pass does not close the authenticated production-preview/mobile, remote pagination or uncertain-request verification gaps below.
 
 ## Remaining authenticated production-preview and mobile checks
 

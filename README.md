@@ -1,84 +1,66 @@
+<img src="public/favicon.svg" alt="Qoima logo" width="56" height="56">
+
 # Qoima — Digital Warehouse
 
-Qoima is an inventory web application for small businesses and individual stock owners. Manage products, record receipts and removals, reconcile counted quantities, and review the history of every stock change. Each signed-in account owns its inventory.
+**Inventory management for small businesses.** Organize products, receive and remove stock, reconcile counted quantities, and keep a clear movement history.
 
-## Features
+**[Open Live Demo →](https://qoima-nine.vercel.app)** · [GitHub](https://github.com/mrreikol/Qoima) · [Development guide](docs/development.md)
 
-- Email/password authentication, email confirmation, persistent sessions, sign-out and password recovery; protected inventory routes.
-- Products with SKU, description, category, minimum stock, cost/selling prices, detail views and archival. Metadata editing never changes quantity.
-- Categories with creation, rename and confirmed deletion: move all affected active/archived products to another owned category or leave them uncategorized. Products and history are retained.
-- Clearly separated Stock in, Stock out and Adjust stock operations with validation, previews, atomic database writes and uncertain-request recovery.
-- Current active-product dashboard totals, inventory cost value, low-stock warnings and real 7/30-day movement charts. Zero stock is distinguished from positive low stock; the attention threshold is quantity <= minimum stock.
-- Server-paginated history with full product-name/SKU search, product/type/date filters and archived-product visibility. Reporting uses browser-local calendar days converted to UTC query boundaries.
-- Searchable/filterable/sortable products and complete matching CSV/Excel exports.
-- Account email, password-reset email, sign-out and browser-local Light / Dark / System appearance in Settings. System is the default and follows OS changes; initialization runs before first paint.
+Inventory pages require sign-in. Each account manages its own products and stock history.
 
-## Stack
+![Qoima Dashboard showing inventory totals, stock movements and low-stock alerts](docs/screenshots/dashboard-desktop.jpg)
 
-React 19, JavaScript, Vite 8, React Router, Tailwind CSS 4, Lucide React and Supabase Auth/PostgreSQL. The activity chart uses local SVG code. Excel generation uses a lazily loaded DevExtreme ExcelJS browser bundle. Tests use Node's test runner and isolated PGlite databases.
+*Screenshots show the actual current interface with illustrative fictional inventory, captured in an isolated, read-only local fixture. They contain no live account or business data.*
 
-## Local setup
+## A closer look
 
-Use Node.js 22.21.1 or newer supported LTS and npm. This project was checked with Node 24.21.0 and npm 11.19.0.
+| Products | Product details | Mobile |
+| --- | --- | --- |
+| <a href="docs/screenshots/products-desktop.jpg"><img src="docs/screenshots/products-desktop.jpg" alt="Products with search, filters, stock status and stock actions" height="180"></a> | <a href="docs/screenshots/product-details-desktop.jpg"><img src="docs/screenshots/product-details-desktop.jpg" alt="Product details with separate stock and metadata actions" height="180"></a> | <a href="docs/screenshots/products-mobile.jpg"><img src="docs/screenshots/products-mobile.jpg" alt="Responsive Products workspace on mobile" height="180"></a> |
 
-For a fresh checkout:
+Select a screenshot to view it at full size. [Capture details](docs/screenshots/README.md).
+
+## What it does
+
+- **Inventory workspace:** products, categories, SKU/name search, filters, sorting, detail views and archival. Deleting a category preserves products and history, with an explicit reassignment choice.
+- **Stock operations:** separate Stock in, Stock out and Actual quantity adjustment actions. Metadata editing never changes stock; archived products retain their history.
+- **Dashboard:** active-product totals, inventory cost value, low/out-of-stock warnings and 7/30-day stock movement charts.
+- **History:** server-side pagination, full product-name/SKU search, product/type/date filters and archived-product visibility, using local calendar-day boundaries.
+- **CSV and Excel:** all products matching the current filters and sorting, including leading-zero SKUs, Unicode and safe literal text. Excel generation loads only when requested.
+- **Accounts and appearance:** email confirmation, persistent sessions, password recovery and protected routes; browser-local Light / Dark / System controls in Settings.
+
+## Technology and engineering
+
+React · JavaScript · Vite · Tailwind CSS · React Router · Lucide React · Supabase Auth/PostgreSQL. ExcelJS handles XLSX; Node's test runner and PGlite cover local verification.
+
+Stock changes use row locks and atomic database RPCs. Client-generated operation UUIDs make identical retries idempotent; uncertain responses preserve the original request for recovery. RLS, restricted grants and ownership constraints isolate users and prevent cross-account category assignment. [Transaction and isolation details](docs/development.md#transactions-and-user-isolation).
+
+## Run locally
+
+Use Node.js 22.21.1 or newer supported LTS and npm. From a fresh checkout:
 
 ```powershell
 npm ci
 Copy-Item .env.example .env.local
 ```
 
-Populate the root `.env.local` locally:
+Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` in `.env.local`, using the project URL and browser-safe publishable key. Never use a secret/service-role key. Do not overwrite an existing local configuration.
 
-| Variable | Required value |
-| --- | --- |
-| `VITE_SUPABASE_URL` | Your Supabase project URL |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | Browser-safe publishable key beginning with `sb_publishable_` |
+Apply only pending migrations, once, in order:
 
-Never use a Supabase secret/service-role key. Local environment files are ignored; `.env.example` contains only the empty variable assignments. Vite deliberately includes the public URL/publishable key in browser code; isolation is enforced by database permissions and RLS. Missing configuration shows a setup screen, never demo authentication.
+1. [Inventory foundation](supabase/migrations/20261102180000_inventory_foundation.sql)
+2. [Stock operations](supabase/migrations/20261103090000_stock_operations.sql)
+3. [Category deletion](supabase/migrations/20261103193000_category_deletion.sql)
 
-Enable email/password authentication in your Supabase project. For local development, set the Site URL to `http://localhost:5173` and allow these redirect URLs:
-
-- `http://localhost:5173/dashboard` — registration/email confirmation.
-- `http://localhost:5173/reset-password` — password recovery.
-
-If the origin or port differs, configure its matching URLs. Then apply the pending migrations below and start the app:
+Configure Supabase email authentication and the local `/dashboard` and `/reset-password` redirect URLs as described in the [setup guide](docs/development.md#local-setup), then run:
 
 ```powershell
 npm run dev
 ```
 
-Use the URL printed by Vite. Restart Vite after editing environment values. Do not overwrite an existing `.env.local` when updating an existing checkout.
+Missing configuration shows setup instructions; the production app has no demo-authentication or sample-inventory fallback.
 
-## Database setup
-
-Review and run complete pending files once, in this order, in your intended project's Supabase SQL Editor:
-
-1. [Inventory foundation](supabase/migrations/20261102180000_inventory_foundation.sql): tables, ownership constraints, RLS/grants and `create_product`.
-2. [Stock operations](supabase/migrations/20261103090000_stock_operations.sql): `change_stock` and user-scoped idempotency records.
-3. [Category deletion](supabase/migrations/20261103193000_category_deletion.sql): transactional reassignment and `delete_category`.
-
-The application and tests do not apply remote migrations. Do not rerun or edit applied migrations; use a new versioned migration for later changes. The project owner has confirmed all three applied and category deletion working in the existing development project.
-
-### Transactions and user isolation
-
-All inventory tables use RLS. Ownership is derived from `auth.uid()` in privileged RPCs; composite ownership constraints prevent foreign-category assignment. Client grants prohibit direct quantity/ownership changes, movement writes and category deletion. RPCs use qualified objects, a safe search path and authenticated-only execution.
-
-Product creation atomically records an initial receipt when quantity is positive. Stock operations lock the product before calculating: IN adds a positive amount; OUT subtracts a positive amount and rejects insufficient stock; ADJUSTMENT sets an Actual quantity (including zero), requires a meaningful note, and records the signed difference. Archived products reject new stock operations. Balance, movement and operation receipt commit together or roll back together.
-
-Each stock request has a client-generated UUID. Identical retries return the original receipt; conflicting reuse fails. An uncertain outcome retains the original UUID and inputs in per-account browser session storage. Refresh/resume the recorded request instead of submitting a new operation. Browser-local recovery storage is not a server backup and can be lost if the tab/storage is discarded. See [stock verification and recovery](docs/stock-verification.md) and [authorization verification](docs/authorization-verification.md).
-
-Category deletion locks categories in deterministic UUID order, processes current active/archived products and deletes the category in one transaction. Counts are previews. On a failed or uncertain result, the UI refreshes inventory before allowing another explicit confirmation. Stock quantities, movements and idempotency records are preserved.
-
-## Export and appearance
-
-Products > Export offers Excel (.xlsx) and standard CSV (.csv). Both fetch all products matching the current search, category, stock-status and active/archived filters, in the current sort order, through ordinary authenticated permissions. Export is a fresh read, not a transactional snapshot across concurrent edits. No internal user IDs or recovery data are exported.
-
-CSV uses comma delimiters, UTF-8 BOM, correct quoting/newlines and two-decimal prices, with formula-injection protection for user text. If regional Excel opens CSV in one column, use Excel export or Data > From Text/CSV with UTF-8 and comma selected; import SKU as Text to preserve leading zeros. XLSX stores SKU/text as string cells, never formulas, and quantities/prices as numeric cells. It includes two-decimal prices, bold headers, widths, frozen headers and autofilter. The writer loads only when Excel is requested.
-
-Appearance is selected only in Settings and persists on this browser, including signed-out screens. The self-hosted Inter font and its [SIL OFL license](src/assets/fonts/Inter-OFL.txt) are included; no external font request is needed. A project-wide open-source license has not been selected; no additional reuse permission is implied.
-
-## Checks
+## Verify
 
 ```powershell
 npm run build
@@ -86,30 +68,17 @@ node scripts/report-build.mjs after
 npm test
 npm run lint
 npm run check:release-files
-npm run check:release-files -- --staged
-npm audit
-npm audit --omit=dev
-npm run preview
 ```
 
-The build report is metadata only; it supplies the production chunk-graph regression test. Regenerate `after` after source/build changes. The committed `before.json` is the archived optimization baseline. `npm test` uses isolated local fixtures and does not contact or mutate remote Supabase. Remote verification scripts are disabled by default and require a separate explicit fixture-mutation decision; never run them against business inventory.
+Regenerate the build report after source/build changes; it supplies the chunk-graph regression test. Tests use isolated local fixtures and do not mutate remote Supabase. See the [release checklist](docs/release-checklist.md) for actual completed checks and remaining verification, and the [development guide](docs/development.md#checks) for audit, staged-file and preview commands.
 
-The release-file checker prints paths and finding categories, never values. Staged mode reads the Git index, not potentially different working-tree contents. It is a heuristic check, not a complete or historical secret audit. Do not commit local credentials, browser sessions, verification manifests or private screenshots. See the [release checklist](docs/release-checklist.md) for executed checks and outstanding verification.
+## Deployment and current limitations
 
-## Deploying to Vercel later
+[Vercel configuration and deployment steps](docs/development.md#vercel-deployment) cover environment variables, SPA routing and Supabase redirects. The live-demo link above is provided by the project owner; it does not imply every hosted verification item is complete.
 
-No deployment or live demo is provided by this repository. When you decide to deploy:
+- Inventory is account-owned; shared workspaces, staff roles and archived-product restoration are not implemented.
+- The lazy XLSX chunk still triggers Vite's size warning. Thresholds have not been raised.
+- The [dated dependency review](docs/dependency-review.md) records a remaining minimatch advisory. Re-run audits for current results; no security certification is claimed.
+- Real multi-page History, uncertain-response UI recovery and authenticated production/mobile checks remain on the release checklist. Local PGlite tests do not prove independent-session concurrency.
 
-1. Publish the reviewed repository yourself and import it into Vercel. Use the repository root, Vite framework, install command `npm ci`, build command `npm run build` and output directory `dist`.
-2. Configure the two public `VITE_SUPABASE_*` variables in the intended Vercel environment before building. Never upload `.env.local` or configure a privileged key.
-3. Review [vercel.json](vercel.json): real static files are served first, missing `/assets/*` return 404, and application routes fall back to `index.html`. HTML/appearance initialization assets revalidate.
-4. Configure the eventual production Site URL and exact confirmation/recovery redirect URLs in Supabase, including `/dashboard` and `/reset-password` on that origin. Treat preview origins separately; do not assume localhost settings cover production.
-5. Perform the hosted checks in the release checklist, including direct product-detail/reset URLs, refresh, email links and missing-chunk recovery.
-
-## Known limitations
-
-- One account owns each inventory; shared workspaces, staff roles, permanent product deletion and archived-product restoration are not implemented.
-- The optional XLSX chunk still exceeds Vite's size warning threshold. Routes/chart code are lazy; warning thresholds have not been raised.
-- A moderate minimatch advisory remains in installed dependency paths with no verified compatible parent update. Browser export does not use the affected Node streaming/glob path; lint uses trusted local patterns. See the dated [dependency review](docs/dependency-review.md). Audit results are not a security guarantee.
-- Real multi-page History, authenticated production-preview/mobile checks and a genuine uncertain-request recovery UI pass remain outstanding. PGlite's single connection does not prove concurrent PostgreSQL locking; the category isolation-test specification remains unexecuted.
-- No hosted routing, production email flow or live deployment is claimed. Previous real Supabase checks are identified as user-reported, separately from local automated tests.
+The bundled [Inter font license](src/assets/fonts/Inter-OFL.txt) is preserved. A project-wide open-source license has not been selected.

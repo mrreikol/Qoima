@@ -19,6 +19,8 @@ import { stockRequestError } from "/src/data/stockOperations";
 import { user, products, categories, movements } from "./data.js";
 
 export default function Review() {
+  // Explicit local capture mode only; production never imports this entry point.
+  const presentation = new URLSearchParams(window.location.search).has("screenshots");
   const [menuOpen, setMenuOpen] = useState(false);
   const close = useCallback(() => setMenuOpen(false), []);
   const [revision, setRevision] = useState(0);
@@ -56,7 +58,7 @@ export default function Review() {
   return (
     <>
       <style>{`.review-fixture-note { margin-left: 0; } @media(max-width:900px) { .review-fixture-note { margin-left: 0; } }`}</style>
-      <aside
+      {!presentation && <aside
         className="review-fixture-note"
         style={{
           padding: "8px 16px",
@@ -67,7 +69,7 @@ export default function Review() {
       >
         Isolated UI review · Fictional data · No remote writes ·{" "}
         <Link to="/login">Auth previews</Link>
-      </aside>
+      </aside>}
       <Routes>
         <Route
           path="/login"

@@ -1,0 +1,53 @@
+@import "tailwindcss";
+/* Installed tooling is not application markup. */
+@source not "../.agents";
+@theme {
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Inter Variable", system-ui, sans-serif;
+  line-height: 1.5;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+
+/* Native controls follow the resolved document theme, including their popups. */
+input,
+select,
+textarea {
+  color-scheme: var(--color-scheme);
+  accent-color: var(--focus);
+}
+input:autofill {
+  color: var(--text);
+  background: var(--surface-soft);
+  caret-color: var(--focus);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--focus);
+  box-shadow: 0 0 0 1000px var(--surface-soft) inset;
+}

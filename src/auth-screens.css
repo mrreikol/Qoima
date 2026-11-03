@@ -1,0 +1,220 @@
+/* Authentication uses the same workspace tokens, with one focused form. */
+.auth-shell {
+  min-height: 100dvh;
+  color: var(--text);
+  background: var(--canvas);
+}
+.auth-shell .auth-header {
+  min-height: 72px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.auth-shell .auth-home {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  min-height: 40px;
+}
+.auth-shell .auth-return {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+}
+.auth-shell .auth-return:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+.auth-shell .auth-main {
+  min-height: calc(100dvh - 73px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px 80px;
+  width: 100%;
+}
+.auth-shell .auth-card {
+  width: min(100%, 440px);
+  max-width: 440px;
+  padding: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none;
+}
+.auth-shell .auth-form-heading {
+  margin-bottom: 32px;
+}
+.auth-shell .auth-card h1 {
+  font-size: 28px;
+  font-weight: 510;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  margin: 0;
+}
+.auth-shell .auth-description {
+  margin: 12px 0 0;
+  max-width: 36ch;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.auth-shell .auth-field {
+  margin: 0 0 20px;
+}
+.auth-shell fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.auth-shell .auth-field label {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 510;
+}
+.auth-shell .auth-field input {
+  height: 48px;
+  padding: 11px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--surface-soft);
+  color: var(--text);
+  border: 1px solid var(--control-border);
+  border-radius: 6px;
+  margin-top: 8px;
+}
+.auth-shell .auth-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.auth-shell .auth-label-row a,
+.auth-shell .password-control button {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.auth-shell .auth-label-row a:hover,
+.auth-shell .password-control button:hover {
+  color: var(--text);
+}
+.auth-shell .password-control {
+  position: relative;
+}
+.auth-shell .password-control input {
+  padding-right: 64px;
+}
+.auth-shell .password-control button {
+  top: 10px;
+  right: 3px;
+  min-height: 44px;
+  min-width: 52px;
+  padding: 6px 8px;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+}
+.auth-shell .auth-field-help {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+.auth-shell .auth-submit {
+  min-height: 48px;
+  width: 100%;
+  margin-top: 4px;
+}
+.auth-shell .auth-alternative {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: left;
+  line-height: 1.6;
+}
+.auth-shell .auth-alternative a,
+.auth-shell .auth-link,
+.auth-shell .auth-link-button {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auth-shell .auth-alternative a {
+  min-height: 32px;
+  margin-left: 4px;
+}
+.auth-shell .email-confirmation {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.auth-shell .email-confirmation strong {
+  color: var(--text);
+  font-weight: 510;
+  overflow-wrap: anywhere;
+}
+.auth-shell .email-confirmation ol {
+  padding: 16px 0 16px 20px;
+  margin: 20px 0;
+  border-block: 1px solid var(--border);
+}
+.auth-shell .email-confirmation li + li {
+  margin-top: 8px;
+}
+.auth-shell .email-confirmation .button {
+  display: flex;
+  margin: 24px 0 12px;
+  min-height: 48px;
+}
+.auth-shell .email-confirmation .auth-link-button,
+.auth-shell .email-confirmation > .auth-link {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 40px;
+}
+.auth-shell .auth-message .button {
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .auth-shell .auth-header {
+    padding: 12px 20px;
+    min-height: 64px;
+    gap: 12px;
+  }
+  .auth-shell .auth-main {
+    min-height: calc(100dvh - 65px);
+    padding: 40px 20px;
+    justify-content: flex-start;
+  }
+  .auth-shell .auth-card {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+  .auth-shell .auth-card h1 {
+    font-size: 26px;
+  }
+  .auth-shell .auth-form-heading {
+    margin-bottom: 28px;
+  }
+  .auth-shell .auth-label-row a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+}

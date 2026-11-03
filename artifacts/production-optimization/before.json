@@ -1,0 +1,647 @@
+{
+  "initialBytes": 579389,
+  "initialGzipBytes": 166025,
+  "initialFiles": [
+    "assets/index-C2N4RfPH.js"
+  ],
+  "files": [
+    {
+      "file": "assets/index-C2N4RfPH.js",
+      "entry": true,
+      "dynamicEntry": false,
+      "bytes": 579389,
+      "gzipBytes": 166025,
+      "imports": [],
+      "dynamicImports": [
+        "assets/inventoryXlsx-B-hsKTDl.js"
+      ],
+      "modules": [
+        {
+          "id": "node_modules/react-dom/cjs/react-dom-client.production.js",
+          "bytes": 529536
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/GoTrueClient.js",
+          "bytes": 108578
+        },
+        {
+          "id": "node_modules/react-router/dist/development/chunk-6KYCQHYJ.mjs",
+          "bytes": 94781
+        },
+        {
+          "id": "node_modules/@supabase/storage-js/dist/index.mjs",
+          "bytes": 42358
+        },
+        {
+          "id": "node_modules/@supabase/phoenix/priv/static/phoenix.mjs",
+          "bytes": 40712
+        },
+        {
+          "id": "node_modules/@supabase/postgrest-js/dist/index.mjs",
+          "bytes": 31088
+        },
+        {
+          "id": "node_modules/@supabase/supabase-js/dist/index.mjs",
+          "bytes": 20592
+        },
+        {
+          "id": "src/pages/Products.jsx",
+          "bytes": 18815
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js",
+          "bytes": 16862
+        },
+        {
+          "id": "node_modules/react/cjs/react.production.js",
+          "bytes": 15979
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/webauthn.js",
+          "bytes": 14261
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js",
+          "bytes": 14094
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js",
+          "bytes": 13082
+        },
+        {
+          "id": "src/components/StockActivityChart.jsx",
+          "bytes": 12762
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/helpers.js",
+          "bytes": 12744
+        },
+        {
+          "id": "src/pages/StockHistory.jsx",
+          "bytes": 12510
+        },
+        {
+          "id": "src/pages/AuthPage.jsx",
+          "bytes": 9697
+        },
+        {
+          "id": "src/pages/Dashboard.jsx",
+          "bytes": 9198
+        },
+        {
+          "id": "node_modules/scheduler/cjs/scheduler.production.js",
+          "bytes": 9044
+        },
+        {
+          "id": "node_modules/iceberg-js/dist/index.mjs",
+          "bytes": 8031
+        },
+        {
+          "id": "src/components/ProductTable.jsx",
+          "bytes": 7584
+        },
+        {
+          "id": "src/components/DeleteCategoryDialog.jsx",
+          "bytes": 7383
+        },
+        {
+          "id": "src/components/ProductForm.jsx",
+          "bytes": 7341
+        },
+        {
+          "id": "src/components/StockDialog.jsx",
+          "bytes": 6394
+        },
+        {
+          "id": "node_modules/react-dom/cjs/react-dom.production.js",
+          "bytes": 6250
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/fetch.js",
+          "bytes": 6076
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/serializer.js",
+          "bytes": 6059
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/webauthn.errors.js",
+          "bytes": 5809
+        },
+        {
+          "id": "src/pages/OtherPages.jsx",
+          "bytes": 5710
+        },
+        {
+          "id": "src/App.jsx",
+          "bytes": 5590
+        },
+        {
+          "id": "src/components/ProductDetails.jsx",
+          "bytes": 5186
+        },
+        {
+          "id": "src/services/inventoryApi.js",
+          "bytes": 4994
+        },
+        {
+          "id": "src/components/InventoryExport.jsx",
+          "bytes": 4902
+        },
+        {
+          "id": "src/data/stockOperations.js",
+          "bytes": 4817
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/base64url.js",
+          "bytes": 4387
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/transformers.js",
+          "bytes": 4252
+        },
+        {
+          "id": "src/components/AppNavigation.jsx",
+          "bytes": 4112
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/errors.js",
+          "bytes": 4109
+        },
+        {
+          "id": "src/auth/AuthRoutes.jsx",
+          "bytes": 4037
+        },
+        {
+          "id": "node_modules/@supabase/functions-js/dist/module/FunctionsClient.js",
+          "bytes": 3916
+        },
+        {
+          "id": "src/pages/Settings.jsx",
+          "bytes": 3653
+        },
+        {
+          "id": "src/data/stockHistory.js",
+          "bytes": 3415
+        },
+        {
+          "id": "\u0000vite/preload-helper.js",
+          "bytes": 2970
+        },
+        {
+          "id": "src/data/inventory.js",
+          "bytes": 2645
+        },
+        {
+          "id": "src/appearance/AppearanceSettings.jsx",
+          "bytes": 2622
+        },
+        {
+          "id": "src/components/InventoryState.jsx",
+          "bytes": 2608
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/build/buildLucideIconNode.mjs",
+          "bytes": 2597
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/web3/ethereum.js",
+          "bytes": 2594
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/websocket-factory.js",
+          "bytes": 2544
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/phoenix/channelAdapter.js",
+          "bytes": 2502
+        },
+        {
+          "id": "src/components/ActionMenu.jsx",
+          "bytes": 2461
+        },
+        {
+          "id": "src/data/dashboard.js",
+          "bytes": 2440
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/phoenix/presenceAdapter.js",
+          "bytes": 2402
+        },
+        {
+          "id": "src/services/stockHistoryService.js",
+          "bytes": 2361
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/RealtimePostgresFilterBuilder.js",
+          "bytes": 2312
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/phoenix/socketAdapter.js",
+          "bytes": 2280
+        },
+        {
+          "id": "src/data/categoryDeletion.js",
+          "bytes": 2005
+        },
+        {
+          "id": "src/inventory/useInventory.js",
+          "bytes": 1908
+        },
+        {
+          "id": "src/components/ui.jsx",
+          "bytes": 1862
+        },
+        {
+          "id": "src/components/PasswordField.jsx",
+          "bytes": 1813
+        },
+        {
+          "id": "\u0000rolldown/runtime.js",
+          "bytes": 1655
+        },
+        {
+          "id": "node_modules/@supabase/functions-js/dist/module/types.js",
+          "bytes": 1621
+        },
+        {
+          "id": "src/inventory/useDashboardActivity.js",
+          "bytes": 1495
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/Icon.mjs",
+          "bytes": 1343
+        },
+        {
+          "id": "src/data/inventoryExportData.js",
+          "bytes": 1321
+        },
+        {
+          "id": "src/components/Brand.jsx",
+          "bytes": 1265
+        },
+        {
+          "id": "\u0000vite/modulepreload-polyfill.js",
+          "bytes": 1185
+        },
+        {
+          "id": "src/inventory/useStockHistory.js",
+          "bytes": 1153
+        },
+        {
+          "id": "src/auth/sessionLifecycle.js",
+          "bytes": 1148
+        },
+        {
+          "id": "src/lib/supabase.js",
+          "bytes": 1103
+        },
+        {
+          "id": "node_modules/tslib/tslib.es6.mjs",
+          "bytes": 1094
+        },
+        {
+          "id": "src/services/inventoryExportService.js",
+          "bytes": 1045
+        },
+        {
+          "id": "src/services/dashboardService.js",
+          "bytes": 945
+        },
+        {
+          "id": "src/auth/AuthProvider.jsx",
+          "bytes": 939
+        },
+        {
+          "id": "src/data/downloadCsv.js",
+          "bytes": 897
+        },
+        {
+          "id": "src/auth/passwordReset.js",
+          "bytes": 863
+        },
+        {
+          "id": "node_modules/react/cjs/react-jsx-runtime.production.js",
+          "bytes": 851
+        },
+        {
+          "id": "src/inventory/latestHistoryRequest.js",
+          "bytes": 767
+        },
+        {
+          "id": "src/components/AppHeader.jsx",
+          "bytes": 736
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/sun.mjs",
+          "bytes": 730
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/constants.js",
+          "bytes": 725
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/constants.js",
+          "bytes": 720
+        },
+        {
+          "id": "src/components/dialogFocus.js",
+          "bytes": 692
+        },
+        {
+          "id": "src/data/inventoryCsv.js",
+          "bytes": 660
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/normalizeChannelError.js",
+          "bytes": 651
+        },
+        {
+          "id": "src/services/readAllRows.js",
+          "bytes": 644
+        },
+        {
+          "id": "src/data/productViews.js",
+          "bytes": 626
+        },
+        {
+          "id": "src/data/authForm.js",
+          "bytes": 626
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js",
+          "bytes": 615
+        },
+        {
+          "id": "src/appearance/useAppearance.js",
+          "bytes": 570
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/createLucideIcon.mjs",
+          "bytes": 528
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/refresh-cw.mjs",
+          "bytes": 497
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/monitor.mjs",
+          "bytes": 463
+        },
+        {
+          "id": "node_modules/react-dom/client.js",
+          "bytes": 453
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/lock-keyhole.mjs",
+          "bytes": 451
+        },
+        {
+          "id": "node_modules/react-dom/index.js",
+          "bytes": 448
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/settings-2.mjs",
+          "bytes": 448
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/polyfills.js",
+          "bytes": 428
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/build/buildLucideIconForReact.mjs",
+          "bytes": 416
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/toCamelCase.mjs",
+          "bytes": 403
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/pencil.mjs",
+          "bytes": 398
+        },
+        {
+          "id": "src/components/useCompactLayout.js",
+          "bytes": 392
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/download.mjs",
+          "bytes": 391
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/log-out.mjs",
+          "bytes": 386
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/locks.js",
+          "bytes": 367
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/toLucideIconData.mjs",
+          "bytes": 355
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/mail.mjs",
+          "bytes": 347
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/menu.mjs",
+          "bytes": 337
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/moon.mjs",
+          "bytes": 323
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/build/defaultAttributes.mjs",
+          "bytes": 308
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/arrow-right.mjs",
+          "bytes": 299
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/local-storage.js",
+          "bytes": 297
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/loader-circle.mjs",
+          "bytes": 294
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/plus.mjs",
+          "bytes": 271
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/mergeClasses.mjs",
+          "bytes": 267
+        },
+        {
+          "id": "src/auth/AuthContext.js",
+          "bytes": 261
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/x.mjs",
+          "bytes": 260
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/chevron-right.mjs",
+          "bytes": 256
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/chevron-left.mjs",
+          "bytes": 254
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/chevron-down.mjs",
+          "bytes": 252
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/icons/check.mjs",
+          "bytes": 235
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/hasA11yProp.mjs",
+          "bytes": 229
+        },
+        {
+          "id": "src/main.jsx",
+          "bytes": 225
+        },
+        {
+          "id": "node_modules/@supabase/supabase-js/dist/tracingRegistry.mjs",
+          "bytes": 217
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/toPascalCase.mjs",
+          "bytes": 212
+        },
+        {
+          "id": "node_modules/@supabase/functions-js/dist/module/helper.js",
+          "bytes": 201
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/context.mjs",
+          "bytes": 181
+        },
+        {
+          "id": "node_modules/react/jsx-runtime.js",
+          "bytes": 180
+        },
+        {
+          "id": "node_modules/scheduler/index.js",
+          "bytes": 168
+        },
+        {
+          "id": "node_modules/lucide-react/dist/esm/shared/src/utils/toKebabCase.mjs",
+          "bytes": 163
+        },
+        {
+          "id": "node_modules/react/index.js",
+          "bytes": 156
+        },
+        {
+          "id": "src/fonts.css",
+          "bytes": 119
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/types.js",
+          "bytes": 117
+        },
+        {
+          "id": "src/assets/branding/qoima-symbol.svg?no-inline",
+          "bytes": 114
+        },
+        {
+          "id": "src/services/inventoryService.js",
+          "bytes": 93
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/lib/version.js",
+          "bytes": 92
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/AuthClient.js",
+          "bytes": 91
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/lib/version.js",
+          "bytes": 88
+        },
+        {
+          "id": "src/index.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/components/stock-movements.css",
+          "bytes": 0
+        },
+        {
+          "id": "node_modules/@supabase/realtime-js/dist/module/index.js",
+          "bytes": 0
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/AuthAdminApi.js",
+          "bytes": 0
+        },
+        {
+          "id": "node_modules/@supabase/auth-js/dist/module/index.js",
+          "bytes": 0
+        },
+        {
+          "id": "src/pages/dashboard.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/appearance/appearance.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/pages/categories.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/components/brand.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/auth-screens.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/workspace.css",
+          "bytes": 0
+        },
+        {
+          "id": "src/precision.css",
+          "bytes": 0
+        },
+        {
+          "id": "index.html",
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "file": "assets/inventoryXlsx-B-hsKTDl.js",
+      "entry": false,
+      "dynamicEntry": true,
+      "bytes": 1303242,
+      "gzipBytes": 284199,
+      "imports": [
+        "assets/index-C2N4RfPH.js"
+      ],
+      "dynamicImports": [],
+      "modules": [
+        {
+          "id": "node_modules/devextreme-exceljs-fork/dist/dx-exceljs-fork.min.js",
+          "bytes": 1872547
+        },
+        {
+          "id": "src/data/inventoryXlsx.js",
+          "bytes": 1435
+        }
+      ]
+    }
+  ]
+}

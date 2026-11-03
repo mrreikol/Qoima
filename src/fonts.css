@@ -1,0 +1,8 @@
+/* Official Inter distribution; license and source in assets/fonts/README.md. */
+@font-face {
+  font-family: "Inter Variable";
+  src: url("./assets/fonts/inter-variable.woff2") format("woff2");
+  font-weight: 400 590;
+  font-style: normal;
+  font-display: swap;
+}

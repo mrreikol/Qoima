@@ -1,0 +1,8 @@
+.category-row-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.category-row-actions button:last-child { color: var(--danger-text); }
+.category-delete-dialog p { margin: 0 0 14px; line-height: 1.6; }
+.category-delete-dialog .field { margin-bottom: 16px; }
+.category-delete-dialog .modal-actions { margin-top: 20px; }
+@media(max-width:600px) {
+  .category-card .category-row-actions { grid-row: 3; grid-column: 1 / -1; justify-content: flex-start; }
+}

@@ -1,0 +1,19 @@
+.appearance-card { margin-top: 24px; }
+.appearance-body { padding: 24px; }
+.appearance-options { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.appearance-option { position: relative; min-width: 0; cursor: pointer; }
+.appearance-option input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.appearance-option-content { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 16px; min-height: 72px; border: 1px solid var(--control-border); border-radius: 7px; color: var(--text-secondary); background: var(--surface); font-size: 14px; }
+.appearance-selected { margin-left: auto; visibility: hidden; }
+.appearance-option input:checked + .appearance-option-content { color: var(--text); background: var(--surface-selected); border-color: var(--focus); }
+.appearance-option input:checked + .appearance-option-content .appearance-selected { visibility: visible; }
+.appearance-option input:focus-visible { outline: 0; }
+.appearance-option input:focus-visible + .appearance-option-content { outline: 3px solid var(--focus); outline-offset: 3px; }
+.appearance-option:hover .appearance-option-content { background: var(--surface-soft); color: var(--text); }
+.appearance-status { margin: 16px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-secondary); }
+@media (max-width:600px) {
+  .appearance-body { padding: 20px; }
+  .appearance-options { gap: 8px; }
+  .appearance-option-content { padding: 14px 10px; flex-direction: column; gap: 8px; position: relative; font-size: 13px; }
+  .appearance-selected { position: absolute; top: 6px; right: 5px; width: 12px; }
+}

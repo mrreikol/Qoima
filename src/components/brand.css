@@ -1,0 +1,41 @@
+.qoima-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  line-height: 1;
+  white-space: nowrap;
+}
+.qoima-symbol {
+  display: block;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 30px;
+  color: var(--brand-symbol, var(--accent));
+}
+.qoima-brand-copy {
+  display: grid;
+  gap: 6px;
+}
+.qoima-wordmark {
+  font-family: "Inter Variable", system-ui, sans-serif;
+  font-size: 23px;
+  font-weight: 590;
+  letter-spacing: -0.035em;
+}
+.qoima-tagline {
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 510;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.qoima-brand--tagline .qoima-symbol {
+  width: 35px;
+  height: 38px;
+}
+.session-loading > .qoima-symbol {
+  width: 36px;
+  height: 39px;
+  margin-bottom: 4px;
+}

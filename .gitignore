@@ -1,0 +1,75 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
+
+# Local authentication state and verification manifests
+.auth/
+.playwright/
+playwright/.auth/
+**/storage-state*.json
+**/storageState*.json
+**/*session*.local.json
+**/*credentials*.local.json
+artifacts/authorization/
+artifacts/stock-verification/
+*.pem
+*.key
+.vercel/
+supabase/.temp/
+
+# Local agent tooling and temporary previews
+/.agents/
+/.impeccable/
+/.codex/
+/coverage/
+/playwright-report/
+/test-results/
+/.vite/
+/tmp/
+/temp/
+/preview/
+/credentials/
+/.npmrc
+/.aws/
+/.ssh/
+*.p12
+*.pfx
+
+# Keep only sanitized, reproducible bundle metadata needed by regression tests.
+# Screenshots, downloaded workbooks, run logs and fixture manifests stay local.
+/artifacts/*
+!/artifacts/production-optimization/
+/artifacts/production-optimization/*
+!/artifacts/production-optimization/before.json
+!/artifacts/production-optimization/after.json
+
+# Unused template/preview assets; keep local copies without publishing them.
+/src/assets/hero.png
+/src/assets/react.svg
+/src/assets/vite.svg

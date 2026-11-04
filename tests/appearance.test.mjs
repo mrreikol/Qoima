@@ -274,8 +274,12 @@ test("cross-tab appearance changes apply without reacting to unrelated account/r
 
 test("the actual HTML uses a blocking appearance bootstrap before body and the application module", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
+  const canvas = html.match(/<link rel="stylesheet" href="(?:\/|%BASE_URL%)appearance-bootstrap\.css"\s*\/>/);
   const bootstrap = html.match(/<script\b[^>]*src="(?:\/|%BASE_URL%)appearance\.js"[^>]*><\/script>/);
+  assert.ok(canvas, "Load the canvas colors from a same-origin stylesheet");
   assert.ok(bootstrap, "Load the appearance initializer synchronously in the head");
+  assert.ok(canvas.index < bootstrap.index);
+  assert.doesNotMatch(html, /<style\b/);
   assert.doesNotMatch(bootstrap[0], /\b(?:async|defer)\b|type="module"/);
   assert.ok(bootstrap.index < html.indexOf("<body"));
   assert.ok(bootstrap.index < html.indexOf('src="/src/main.jsx"'));

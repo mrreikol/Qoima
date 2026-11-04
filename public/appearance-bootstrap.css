@@ -1,0 +1,10 @@
+/* Canvas colors while the app bundle loads. */
+html {
+  background: #f7f8fa;
+  color: #18181b;
+}
+
+html[data-theme="dark"] {
+  background: #08090a;
+  color: #f3f4f5;
+}

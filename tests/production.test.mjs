@@ -91,6 +91,16 @@ test('Vercel routes serve real files first, reject missing chunks and fall back 
   for (const url of ['/products/a-product-id', '/reset-password', '/dashboard', '/login']) assert.equal(routeFor(url).dest, '/index.html');
   assert.equal(routeFor('/assets/old-chunk.js').status, 404);
   assert.ok(config.headers.some(rule => rule.source === '/appearance.js' && rule.headers.some(header => header.value === 'no-cache')));
+  for (const url of ['/', '/products/a-product-id', '/login', '/reset-password']) {
+    const headers = new Map(config.headers
+      .filter(rule => new RegExp(`^${rule.source}$`).test(url))
+      .flatMap(rule => rule.headers.map(({ key, value }) => [key.toLowerCase(), value])));
+    const policy = headers.get('content-security-policy');
+    assert.ok(policy, `CSP must cover ${url}`);
+    assert.match(policy, /(?:^|; )frame-ancestors 'none'(?:;|$)/);
+    assert.doesNotMatch(policy, /unsafe-inline|unsafe-eval/);
+    assert.equal(headers.get('x-frame-options'), 'DENY');
+  }
   const example = (await readFile('.env.example', 'utf8')).trim().replaceAll('\r', '');
   assert.equal(example, 'VITE_SUPABASE_URL=\nVITE_SUPABASE_PUBLISHABLE_KEY=');
 });
